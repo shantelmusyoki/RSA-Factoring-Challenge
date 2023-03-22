@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+import sys
+
+# main program
+# function - check
+
+
+def check(x):
+    a = []
+    y = x
+    for i in range(2, 1000000000):
+        if (x % i) == 0:
+            a.append(i)
+            x = x / i
+            a.append(x)
+            break
+    print("{:.0f}={:.0f}*{:.0f}".format(y, a[1], a[0]))
+
+
+def run():
+    f = open(sys.argv[1], "r")
+    lines = f.readlines()
+    for i in lines:
+        check(int(i))
+
+
+run()
